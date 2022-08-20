@@ -11,16 +11,20 @@
 </head>
 
 <body class="app sidebar-mini rtl">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.partials.header')
     @include('admin.partials.sidebar')
     <main class="app-content">
-        @yield('content')
-    </main>
-    <script src="{{ asset('backend/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('backend/js/popper.min.js') }}"></script>
-    <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('backend/js/main.js') }}"></script>
-    <script src="{{ asset('backend/js/plugins/pace.min.js') }}"></script>
+        <main class="app-content" id="app">
+            @yield('content')
+        </main>
+        <script src="{{ asset('backend/js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('backend/js/popper.min.js') }}"></script>
+        <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('backend/js/main.js') }}"></script>
+        <script src="{{ asset('backend/js/plugins/pace.min.js') }}"></script>
+        @stack('scripts')
+
 </body>
 
 </html>
